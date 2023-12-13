@@ -1,0 +1,5 @@
+Nombre;telefono,edad
+Miriam,603385235,26
+Fenando,62540315,28
+Liliana,213546543,45
+Miguel,602154521,54
