@@ -8,6 +8,9 @@ def principal():
 @app.route('/muestra')
 def muestra():
     return render_template('muestra.html')
+@app.route('/leer')
+def leer():
+    return render_template('leer.html')
  
  
 if __name__== '__main__':

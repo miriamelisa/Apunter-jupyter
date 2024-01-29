@@ -11,6 +11,7 @@
         }
 
         #titulo-div {
+            border: 1px solid #f6a700;
             background-color: #001f3f; 
             color: #ffffff;
             padding: 10px;
@@ -54,10 +55,10 @@
                     <a class="nav-link" href="#">Administración</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Muestra</a>
+                    <a class="nav-link" href="{{url_for('muestra')}}">Muestra</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Lectura</a>
+                    <a class="nav-link" href="{{url_for('leer')}}">Lectura</a>
                 </li>
             </ul>
         </div>
