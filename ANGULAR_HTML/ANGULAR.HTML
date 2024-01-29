@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        .persona {
+            text-align: center;
+            width: 100px; 
+            height: 70px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #4b0339;
+            box-shadow: 10px 10px 15px #b98ba8;
+            background-color: #f7bdf7;
+        }
+
+        .contenedor {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body ng-app>
+    <div ng-init="gentes=[{nombre:'Txma',edad:33},{nombre:'Ivan',edad:23},{nombre:'Ana',edad:20},{nombre:'Andre',edad:25},{nombre:'Miri',edad:23},{nombre:'Noelia',edad:34},{nombre:'Andre',edad:25},{nombre:'Elisa',edad:26},{nombre:'Edu',edad:27},{nombre:'Miguel',edad:60},{nombre:'Fernando',edad:28}]">
+        <div>
+            <label>Buscar por nombre: </label>
+            <input type="text" ng-model="filtro">
+        </div><br>
+        
+        <div class="contenedor">
+            <div ng-repeat="gente in gentes|filter:{nombre:filtro}" ng-init="indice=$index">
+                <div class="persona">
+                    {{indice+1}}
+                    <br>
+                    {{gente.nombre}}
+                    <br>
+                    {{gente.edad}}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
