@@ -1,0 +1,11 @@
+Código,Nombre,Altura,Peso,Color de cabello,Color de piel,Color de ojos,Año de nacimiento,Género,Hogar,Películas
+1,Luke Skywalker,172,77,blond,fair,blue,19BBY,male,https://swapi.dev/api/planets/1/,"['A New Hope', 'The Empire Strikes Back', 'Return of the Jedi', 'Revenge of the Sith']"
+2,C-3PO,167,75,n/a,gold,yellow,112BBY,n/a,https://swapi.dev/api/planets/1/,"['A New Hope', 'The Empire Strikes Back', 'Return of the Jedi', 'The Phantom Menace', 'Attack of the Clones', 'Revenge of the Sith']"
+3,R2-D2,96,32,n/a,"white, blue",red,33BBY,n/a,https://swapi.dev/api/planets/8/,"['A New Hope', 'The Empire Strikes Back', 'Return of the Jedi', 'The Phantom Menace', 'Attack of the Clones', 'Revenge of the Sith']"
+4,Darth Vader,202,136,none,white,yellow,41.9BBY,male,https://swapi.dev/api/planets/1/,"['A New Hope', 'The Empire Strikes Back', 'Return of the Jedi', 'Revenge of the Sith']"
+5,Leia Organa,150,49,brown,light,brown,19BBY,female,https://swapi.dev/api/planets/2/,"['A New Hope', 'The Empire Strikes Back', 'Return of the Jedi', 'Revenge of the Sith']"
+6,Owen Lars,178,120,"brown, grey",light,blue,52BBY,male,https://swapi.dev/api/planets/1/,"['A New Hope', 'Attack of the Clones', 'Revenge of the Sith']"
+7,Beru Whitesun lars,165,75,brown,light,blue,47BBY,female,https://swapi.dev/api/planets/1/,"['A New Hope', 'Attack of the Clones', 'Revenge of the Sith']"
+8,R5-D4,97,32,n/a,"white, red",red,unknown,n/a,https://swapi.dev/api/planets/1/,['A New Hope']
+9,Biggs Darklighter,183,84,black,light,brown,24BBY,male,https://swapi.dev/api/planets/1/,['A New Hope']
+10,Obi-Wan Kenobi,182,77,"auburn, white",fair,blue-gray,57BBY,male,https://swapi.dev/api/planets/20/,"['A New Hope', 'The Empire Strikes Back', 'Return of the Jedi', 'The Phantom Menace', 'Attack of the Clones', 'Revenge of the Sith']"
