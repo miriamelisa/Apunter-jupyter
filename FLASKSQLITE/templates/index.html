@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLASK-SQLITE</title>
+</head>
+<body>
+    <form action="/insertar" method="post">
+        <label>NOMBRE:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <button type="submit">INSERTAR</button>
+    </form>
+	<hr>
+	<br>
+	<h1>NOMBRES</h1>
+    <ul style="list-style-type: none;">
+        {% for item in data %}
+            <li>{{ item[1] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
