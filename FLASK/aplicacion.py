@@ -10,9 +10,5 @@ def principal():
 @app.route('/contactos')
 def contactos():
     return render_template('contactos.html')
- 
- 
- 
- 
 if __name__== '__main__':
     app.run(debug=True)

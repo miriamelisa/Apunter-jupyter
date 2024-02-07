@@ -3,7 +3,6 @@ import sqlite3
 
 app = Flask(__name__)
 
-# Configuración de la base de datos
 BD = 'datos.db'
 
 def crear_tabla():
@@ -21,6 +20,7 @@ def index():
         cursor.execute('SELECT * FROM ejemplo')
         datos = cursor.fetchall()
     return render_template('index.html', data=datos)
+#### Extraer DATOS!!!
 
 @app.route('/insertar', methods=['POST'])
 def insertar():

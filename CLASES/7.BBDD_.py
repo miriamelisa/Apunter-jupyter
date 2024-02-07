@@ -1,53 +1,65 @@
-from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String , Sequence
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-# Crea una instancia de la clase 'declarative_base' para definir clases de modelo
-Base = declarative_base()
-
-# Define una clase de modelo llamada 'Usuario'
-class Personas(Base):
-    __tablename__ = 'Personas'
-
-    id = Column(Integer, Sequence('Person_ID'), primary_key=True)
-    nombre = Column(String(50))
-    edad = Column(String(50))
-
-# Crea la tabla en la base de datos en memoria
-BDCONTENEDOR = create_engine('sqlite:///:memory:', echo=True)
-Base.metadata.create_all(BDCONTENEDOR)
-
-# Crea una sesión
-Session = sessionmaker(bind=BDCONTENEDOR)
-session = Session()
-
-# Ejemplo de uso de la sesión
-new_person = Personas(nombre='Pepe', edad='30')
-session.add(new_person)
-session.add(Personas(nombre='Miri', edad='26'))
-session.add(Personas(nombre='Luis', edad='26'))
-session.commit()
-PERSONAS = session.query(Personas).all()
-for P in PERSONAS:
-    print(f"ID: {P.id}, Nombre: {P.nombre}, Edad: {P.edad}")
-
-actualizar_persona = session.query(Personas).filter_by(nombre='Pepe').first()
-
-if actualizar_persona:
-    actualizar_persona.edad=46
-    session.commit()
-
-for P in PERSONAS:
-    print(f"ID: {P.id}, Nombre: {P.nombre}, Edad: {P.edad}")
-
-eliminar_persona = session.query(Personas).filter_by(nombre='Pepe').first()
-
-# Verifica si se encontró la instancia de "Pepe"
-if eliminar_persona:
-    # Elimina a "pepe" de la base de datos
-    session.delete(eliminar_persona)
-    session.commit()
-
-PERSONAS = session.query(Personas).all()
-for P in PERSONAS:
-    print(f"ID: {P.id}, Nombre: {P.nombre}, Edad: {P.edad}")
-
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "ORM_ SQL \n",
+    "OBJETO RELACIONAL MAPPER"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Puede funcionar como mysql normal\n",
+    "#para hacer CRUD sin embargo con ORM las base de datos se pueden utilizar como objetos para poder\n",
+    "#MAPPEAR"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "ModuleNotFoundError",
+     "evalue": "No module named 'sqlalchemy'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mModuleNotFoundError\u001b[0m                       Traceback (most recent call last)",
+      "Cell \u001b[1;32mIn[1], line 1\u001b[0m\n\u001b[1;32m----> 1\u001b[0m \u001b[38;5;28;01mfrom\u001b[39;00m \u001b[38;5;21;01msqlalchemy\u001b[39;00m \u001b[38;5;28;01mimport\u001b[39;00m create_engine, MetaData, Table, Column, Integer, String\n",
+      "\u001b[1;31mModuleNotFoundError\u001b[0m: No module named 'sqlalchemy'"
+     ]
+    }
+   ],
+   "source": [
+    "from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

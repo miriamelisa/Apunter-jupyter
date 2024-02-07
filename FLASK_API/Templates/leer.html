@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa; /* Fondo gris claro para el body */
-
+            background-color: #f8f9fa;
         }
 
         #titulo-div {
@@ -72,13 +71,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Administración</a>
+                    <a class="nav-link" href="{{url_for('principal')}}">Administración</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Muestra</a>
+                    <a class="nav-link" href="{{url_for('muestra')}}">Muestra</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Lectura</a>
+                    <a class="nav-link" href="{{url_for('leer')}}">Lectura</a>
                 </li>
             </ul>
         </div>
@@ -92,26 +91,24 @@
                 </div>
 
                 <div class="card-container">
-                    <div class="row">
-                        <div class="col">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Título 1</h5>
-                                    <p class="card-text">Nombre 1</p>
-                                    <p class="card-text">Descripción 1</p>
-                                    <a href="#" class="card-url">www.ejemplo.com</a>
+                    {% for entry in data %}
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ entry['titulo'] }}</h5>
+                                        <p class="card-text">{{ entry['entrada'] }}</p>
+                                        <a href="#" class="card-url">{{ entry['imagen'] }}</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </body>
 </html>
