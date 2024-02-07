@@ -26,10 +26,6 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .cuadritos {
-            margin-bottom: 5px;
-            text-align: center;
-        }
         
         nav {
             background-color: #001f3f;
@@ -40,6 +36,17 @@
         nav .navbar-nav .nav-link {
             color: #ffffff; 
         }
+        .custom-table {
+                    border-collapse: separate;
+                    border-spacing: 0 10px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                }
+
+        .custom-table thead th {
+                    background-color: #001f3f;
+                    color: #ffffff;
+                }
+
     </style>
 </head>
 <body>
@@ -52,7 +59,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Administración</a>
+                    <a class="nav-link" href="{{url_for('principal')}}">Administración</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url_for('muestra')}}">Muestra</a>
@@ -63,6 +70,8 @@
             </ul>
         </div>
     </nav>
+
+
 <div class="container mt-5">
     <div class="row">
         <div class="col-sm-12 col-md-8 mx-auto">
@@ -70,7 +79,7 @@
                 <h2>ADMINISTRACIÓN</h2>
             </div>
 
-            <form action="/insertar" method="post">
+            <form id="miFormulario" action="/insertar" method="post">
                 <div class="form-group">
                     <label for="titulo">Título:</label>
                     <input type="text" class="form-control" id="titulo" placeholder="Ingrese el título" name="titulo" required>
@@ -92,46 +101,39 @@
                 </div>
 
                 <div class="form-group text-center">
-                    <button type="button" class="btn btn-primary" style="background-color: #001f3f;">Guardar</button>
-                    <button type="button" class="btn btn-primary" style="background-color: #f6a700;">Borrar</button>
-                    <button type="button" class="btn btn-primary" style="background-color: #2b2e74;">Buscar</button>
+                    <button type="submit" class="btn btn-primary" style="background-color: #001f3f;">Guardar</button>
+                    <button type="reset" class="btn btn-secondary" style="background-color: #f6a700;">Borrar</button>
                 </div>
                 
                 <div class="form-group mt-3">
-                    <input type="text" class="form-control" id="confirmacion" readonly>
+                    <input type="text" class="form-control" id="confirmacion" value="{{ confirmacion }}" readonly>
                 </div>
+            
 
                 <div class="row">
-                    <div class="col-sm-12 col-md-3">
-                        <div class="card cuadritos">
-                            <div class="card-body">
-                                <h5 class="card-title">Título</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-3">
-                        <div class="card cuadritos">
-                            <div class="card-body">
-                                <h5 class="card-title">Entrada</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-3">
-                        <div class="card cuadritos">
-                            <div class="card-body">
-                                <h5 class="card-title">Descripción</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-3">
-                        <div class="card cuadritos">
-                            <div class="card-body">
-                                <h5 class="card-title">Imagen</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        
+                    <div class="col-sm-12 mx-auto">
+                        {% if data %}
+                        <table class="table table-bordered custom-table table-responsive mx-auto">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Título</th>
+                                        <th scope="col">Entrada</th>
+                                        <th scope="col">Descripción</th>
+                                        <th scope="col">Imagen</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for entrada in data %}
+                                        <tr>
+                                            <td>{{ entrada[1] }}</td>
+                                            <td>{{ entrada[2] }}</td>
+                                            <td>{{ entrada[3] }}</td>
+                                            <td>{{ entrada[4] }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        {% endif %}
                     </div>
                 </div>
 
@@ -139,11 +141,6 @@
         </div>
     </div>
 </div>
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
