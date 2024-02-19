@@ -17,6 +17,7 @@
             background-color: #f7bdf7;
         }
 
+
         .contenedor {
             display: flex;
             flex-wrap: wrap;
@@ -30,6 +31,7 @@
             <label>Buscar por nombre: </label>
             <input type="text" ng-model="filtro">
         </div><br>
+        
         
         <div class="contenedor">
             <div ng-repeat="gente in gentes|filter:{nombre:filtro}" ng-init="indice=$index">
