@@ -59,7 +59,6 @@ def insertar():
         entrada = request.form['entrada']
         descripcion = request.form['descripcion']
         imagen = request.form['imagen']
-
         with sqlite3.connect(BD) as conexion:
             cursor = conexion.cursor()
             cursor.execute('INSERT INTO entradas (titulo, entrada, descripcion, imagen) VALUES (?, ?, ?, ?)', (titulo, entrada, descripcion, imagen))
